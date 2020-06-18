@@ -1,7 +1,7 @@
 /*
  * BSP.S32K1xx.Timer.c
  *
- *  Created on: 2019Äê10ÔÂ11ÈÕ
+ *  Created on: 2019å¹´10æœˆ11æ—¥
  *      Author: Master.HE
  */
 #include "Error.h"
@@ -14,8 +14,8 @@
 
 int BSP_S32K1xx_Timer_Init(void)
 {
-	PCC->PCCn[PCC_LPIT_INDEX] = PCC_PCCn_PCS(6);    // LPIT0Ê±ÖÓ Clock Src = 6 (SPLL2_DIV2_CLK=160MHZ/4 = 40MHZ)
-	PCC->PCCn[PCC_LPIT_INDEX] |= PCC_PCCn_CGC_MASK; //Ê¹ÄÜLPIT0Ê±ÖÓ
+	PCC->PCCn[PCC_LPIT_INDEX] = PCC_PCCn_PCS(6);    // LPIT0æ—¶é’Ÿ Clock Src = 6 (SPLL2_DIV2_CLK=160MHZ/4 = 40MHZ)
+	PCC->PCCn[PCC_LPIT_INDEX] |= PCC_PCCn_CGC_MASK; //ä½¿èƒ½LPIT0æ—¶é’Ÿ
 
 	LPIT0->MCR_BIT.M_CEN=1;
 
@@ -44,14 +44,14 @@ int BSP_S32K1xx_Timer_GET_Flag(void)
 
 int BSP_S32K1xx_Timer_Enable(void)
 {
-	//¿ªÊ¼¼ÆÊ±
+	//å¼€å§‹è®¡æ—¶
 	LPIT0->TMR[0].TCTRL_BIT.T_EN=1;
 
 	return Error_OK;
 }
 int BSP_S32K1xx_Timer_Disable(void)
 {
-	//Í£Ö¹¼ÆÊ±
+	//åœæ­¢è®¡æ—¶
 	LPIT0->TMR[0].TCTRL_BIT.T_EN=0;
 
 	return Error_OK;

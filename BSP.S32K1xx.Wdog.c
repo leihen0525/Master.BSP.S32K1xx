@@ -1,7 +1,7 @@
 /*
  * BSP.S32K1xx.Wdog.c
  *
- *  Created on: 2019Äê10ÔÂ11ÈÕ
+ *  Created on: 2019å¹´10æœˆ11æ—¥
  *      Author: Master.HE
  */
 #include "Error.h"
@@ -16,9 +16,9 @@ int BSP_S32K1xx_Wdog_Enable(void)
 int BSP_S32K1xx_Wdog_Disable(void)
 {
 
-	WDOG->CNT=0xD928C520; 	 //½âËø¿´ÃÅ¹·
-	WDOG->TOVAL=0x0000FFFF;	 //°ÑÊ±¼äÅäÖÃÎª×î´ó
-	WDOG->CS = 0x00002100;   //¹Ø±Õ¿´ÃÅ¹·
+	WDOG->CNT=0xD928C520; 	 //è§£é”çœ‹é—¨ç‹—
+	WDOG->TOVAL=0x0000FFFF;	 //æŠŠæ—¶é—´é…ç½®ä¸ºæœ€å¤§
+	WDOG->CS = 0x00002100;   //å…³é—­çœ‹é—¨ç‹—
 
 	return Error_OK;
 }

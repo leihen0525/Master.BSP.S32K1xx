@@ -1,7 +1,7 @@
 /*
  * BSP.S32K1xx.UART.c
  *
- *  Created on: 2019Äê10ÔÂ11ÈÕ
+ *  Created on: 2019å¹´10æœˆ11æ—¥
  *      Author: Master.HE
  */
 #include "Error.h"
