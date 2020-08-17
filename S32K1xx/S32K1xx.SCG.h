@@ -10,6 +10,300 @@
 
 #include "S32K1xx.Type.h"
 
+
+typedef union
+{
+	__I  uint32_t DATA;
+	struct
+	{
+		__I  uint32_t							:1;
+		__I  uint32_t SOSC						:1;
+		__I  uint32_t SIRC						:1;
+		__I  uint32_t FIRC						:1;
+
+		__I  uint32_t							:2;
+		__I  uint32_t SPLL						:1;
+		__I  uint32_t							:1;
+
+		__I  uint32_t							:19;
+
+		__I  uint32_t DIVSLOW					:1;
+		__I  uint32_t DIVBUS					:1;
+		__I  uint32_t							:2;
+		__I  uint32_t DIVCORE					:1;
+	}BIT;
+}SCG_PARAM_Type;
+
+typedef union
+{
+	__I  uint32_t DATA;
+	struct
+	{
+		__I  uint32_t DIVSLOW					:4;
+		__I  uint32_t DIVBUS					:4;
+
+		__I  uint32_t							:8;
+
+		__I  uint32_t DIVCORE					:4;
+		__I  uint32_t							:4;
+
+		__I  uint32_t SCS						:4;
+		__I  uint32_t							:4;
+	}BIT;
+}SCG_CSR_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t DIVSLOW					:4;
+		__IO uint32_t DIVBUS					:4;
+
+		__IO uint32_t							:8;
+
+		__IO uint32_t DIVCORE					:4;
+		__IO uint32_t							:4;
+
+		__IO uint32_t SCS						:4;
+		__IO uint32_t							:4;
+	}BIT;
+}SCG_RCCR_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t DIVSLOW					:4;
+		__IO uint32_t DIVBUS					:4;
+
+		__IO uint32_t							:8;
+
+		__IO uint32_t DIVCORE					:4;
+		__IO uint32_t							:4;
+
+		__IO uint32_t SCS						:4;
+		__IO uint32_t							:4;
+	}BIT;
+}SCG_VCCR_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t DIVSLOW					:4;
+		__IO uint32_t DIVBUS					:4;
+
+		__IO uint32_t							:8;
+
+		__IO uint32_t DIVCORE					:4;
+		__IO uint32_t							:4;
+
+		__IO uint32_t SCS						:4;
+		__IO uint32_t							:4;
+	}BIT;
+}SCG_HCCR_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t							:24;
+
+		__IO uint32_t CLKOUTSEL					:4;
+		__IO uint32_t							:4;
+	}BIT;
+}SCG_CLKOUTCNFG_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t SOSCEN					:1;
+		__IO uint32_t							:15;
+
+		__IO uint32_t SOSCCM					:1;
+		__IO uint32_t SOSCCMRE					:1;
+		__IO uint32_t							:5;
+		__IO uint32_t LK						:1;
+
+		__IO uint32_t SOSCVLD					:1;
+		__IO uint32_t SOSCSEL					:1;
+		__IO uint32_t SOSCERR					:1;
+		__IO uint32_t							:5;
+
+	}BIT;
+}SCG_SOSCCSR_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t SOSCDIV1					:3;
+		__IO uint32_t							:5;
+
+		__IO uint32_t SOSCDIV2					:3;
+		__IO uint32_t							:5;
+
+		__IO uint32_t							:16;
+	}BIT;
+}SCG_SOSCDIV_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t							:2;
+		__IO uint32_t EREFS						:1;
+		__IO uint32_t HGO						:1;
+		__IO uint32_t RANGE						:2;
+		__IO uint32_t							:2;
+
+		__IO uint32_t							:24;
+	}BIT;
+}SCG_SOSCCFG_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t SIRCEN					:1;
+		__IO uint32_t SIRCSTEN					:1;
+		__IO uint32_t SIRCLPEN					:1;
+		__IO uint32_t							:20;
+		__IO uint32_t LK						:1;
+
+		__IO uint32_t SIRCVLD					:1;
+		__IO uint32_t SIRCSEL					:1;
+		__IO uint32_t							:6;
+	}BIT;
+}SCG_SIRCCSR_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t SIRCDIV1					:3;
+		__IO uint32_t							:5;
+
+		__IO uint32_t SIRCDIV2					:3;
+		__IO uint32_t							:5;
+
+		__IO uint32_t							:16;
+	}BIT;
+}SCG_SIRCDIV_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t RANGE						:1;
+		__IO uint32_t							:31;
+	}BIT;
+}SCG_SIRCCFG_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t FIRCEN					:1;
+		__IO uint32_t							:2;
+		__IO uint32_t FIRCREGOFF				:1;
+		__IO uint32_t							:19;
+		__IO uint32_t LK						:1;
+
+		__IO uint32_t FIRCVLD					:1;
+		__IO uint32_t FIRCSEL					:1;
+		__IO uint32_t FIRCERR					:1;
+		__IO uint32_t							:5;
+	}BIT;
+}SCG_FIRCCSR_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t FIRCDIV1					:3;
+		__IO uint32_t							:5;
+
+		__IO uint32_t FIRCDIV2					:3;
+		__IO uint32_t							:5;
+
+		__IO uint32_t							:16;
+	}BIT;
+}SCG_FIRCDIV_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t RANGE						:2;
+		__IO uint32_t							:30;
+	}BIT;
+}SCG_FIRCCFG_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t SPLLEN					:1;
+		__IO uint32_t							:15;
+
+		__IO uint32_t SPLLCM					:1;
+		__IO uint32_t SPLLCMRE					:1;
+		__IO uint32_t							:5;
+		__IO uint32_t LK						:1;
+
+		__IO uint32_t SPLLVLD					:1;
+		__IO uint32_t SPLLSEL					:1;
+		__IO uint32_t SPLLERR					:1;
+		__IO uint32_t							:5;
+	}BIT;
+}SCG_SPLLCSR_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t SPLLDIV1					:3;
+		__IO uint32_t							:5;
+
+		__IO uint32_t SPLLDIV2					:3;
+		__IO uint32_t							:5;
+
+		__IO uint32_t							:16;
+	}BIT;
+}SCG_SPLLDIV_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t SOURCE					:1;
+		__IO uint32_t							:7;
+
+		__IO uint32_t PREDIV					:3;
+		__IO uint32_t							:5;
+
+		__IO uint32_t MULT						:5;
+		__IO uint32_t							:11;
+	}BIT;
+}SCG_SPLLCFG_Type;
 /* ----------------------------------------------------------------------------
    -- SCG Peripheral Access Layer
    ---------------------------------------------------------------------------- */
@@ -26,37 +320,37 @@
 typedef struct
 {
 	__I  uint32_t VERID;                             /**< Version ID Register, offset: 0x0 */
-	__I  uint32_t PARAM;                             /**< Parameter Register, offset: 0x4 */
+	SCG_PARAM_Type PARAM;                             /**< Parameter Register, offset: 0x4 */
 	uint8_t RESERVED_0[8];
-	__I  uint32_t CSR;                               /**< Clock Status Register, offset: 0x10 */
-	__IO uint32_t RCCR;                              /**< Run Clock Control Register, offset: 0x14 */
-	__IO uint32_t VCCR;                              /**< VLPR Clock Control Register, offset: 0x18 */
+	SCG_CSR_Type CSR;                               /**< Clock Status Register, offset: 0x10 */
+	SCG_RCCR_Type RCCR;                              /**< Run Clock Control Register, offset: 0x14 */
+	SCG_VCCR_Type VCCR;                              /**< VLPR Clock Control Register, offset: 0x18 */
 
 #if (defined (__Target_S32K116__) || defined (__Target_S32K118__))
 	uint8_t RESERVED_5[4];
 #elif (defined (__Target_S32K142__) || defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
-	__IO uint32_t HCCR;                              /**< HSRUN Clock Control Register, offset: 0x1C */
+	SCG_HCCR_Type HCCR;                              /**< HSRUN Clock Control Register, offset: 0x1C */
 #endif
 
-	__IO uint32_t CLKOUTCNFG;                        /**< SCG CLKOUT Configuration Register, offset: 0x20 */
+	SCG_CLKOUTCNFG_Type CLKOUTCNFG;                        /**< SCG CLKOUT Configuration Register, offset: 0x20 */
 	uint8_t RESERVED_1[220];
-	__IO uint32_t SOSCCSR;                           /**< System OSC Control Status Register, offset: 0x100 */
-	__IO uint32_t SOSCDIV;                           /**< System OSC Divide Register, offset: 0x104 */
-	__IO uint32_t SOSCCFG;                           /**< System Oscillator Configuration Register, offset: 0x108 */
+	SCG_SOSCCSR_Type SOSCCSR;                           /**< System OSC Control Status Register, offset: 0x100 */
+	SCG_SOSCDIV_Type SOSCDIV;                           /**< System OSC Divide Register, offset: 0x104 */
+	SCG_SOSCCFG_Type SOSCCFG;                           /**< System Oscillator Configuration Register, offset: 0x108 */
 	uint8_t RESERVED_2[244];
-	__IO uint32_t SIRCCSR;                           /**< Slow IRC Control Status Register, offset: 0x200 */
-	__IO uint32_t SIRCDIV;                           /**< Slow IRC Divide Register, offset: 0x204 */
-	__IO uint32_t SIRCCFG;                           /**< Slow IRC Configuration Register, offset: 0x208 */
+	SCG_SIRCCSR_Type SIRCCSR;                           /**< Slow IRC Control Status Register, offset: 0x200 */
+	SCG_SIRCDIV_Type SIRCDIV;                           /**< Slow IRC Divide Register, offset: 0x204 */
+	SCG_SIRCCFG_Type SIRCCFG;                           /**< Slow IRC Configuration Register, offset: 0x208 */
 	uint8_t RESERVED_3[244];
-	__IO uint32_t FIRCCSR;                           /**< Fast IRC Control Status Register, offset: 0x300 */
-	__IO uint32_t FIRCDIV;                           /**< Fast IRC Divide Register, offset: 0x304 */
-	__IO uint32_t FIRCCFG;                           /**< Fast IRC Configuration Register, offset: 0x308 */
+	SCG_FIRCCSR_Type FIRCCSR;                           /**< Fast IRC Control Status Register, offset: 0x300 */
+	SCG_FIRCDIV_Type FIRCDIV;                           /**< Fast IRC Divide Register, offset: 0x304 */
+	SCG_FIRCCFG_Type FIRCCFG;                           /**< Fast IRC Configuration Register, offset: 0x308 */
 
 #if (defined (__Target_S32K142__) || defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
 	uint8_t RESERVED_4[756];
-	__IO uint32_t SPLLCSR;                           /**< System PLL Control Status Register, offset: 0x600 */
-	__IO uint32_t SPLLDIV;                           /**< System PLL Divide Register, offset: 0x604 */
-	__IO uint32_t SPLLCFG;                           /**< System PLL Configuration Register, offset: 0x608 */
+	SCG_SPLLCSR_Type SPLLCSR;                           /**< System PLL Control Status Register, offset: 0x600 */
+	SCG_SPLLDIV_Type SPLLDIV;                           /**< System PLL Divide Register, offset: 0x604 */
+	SCG_SPLLCFG_Type SPLLCFG;                           /**< System PLL Configuration Register, offset: 0x608 */
 #endif
 
 } SCG_Type, *SCG_MemMapPtr;

@@ -21,7 +21,14 @@ int BSP_S32K1xx_IRQ_Init(void)
 
 int BSP_S32K1xx_IRQ_Enable(int IRQ_Index)
 {
-#if (defined (__Target_S32K142__) || defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
+#if (defined (__Target_S32K116__) || defined (__Target_S32K118__))
+	if ((int32_t)(IRQ_Index) >= 0)
+	{
+		S32_NVIC->ISER[0U] = (uint32_t)(1UL << (((uint32_t)IRQ_Index) & 0x1FUL));
+		return Error_OK;
+	}
+	return Error_Invalid_Parameter;
+#elif (defined (__Target_S32K142__) || defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
 
 	if ((int32_t)(IRQ_Index) >= 0)
 	{
@@ -38,7 +45,16 @@ int BSP_S32K1xx_IRQ_Enable(int IRQ_Index)
 }
 int BSP_S32K1xx_IRQ_Disable(int IRQ_Index)
 {
-#if (defined (__Target_S32K142__) || defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
+#if (defined (__Target_S32K116__) || defined (__Target_S32K118__))
+	if ((int32_t)(IRQ_Index) >= 0)
+	{
+		S32_NVIC->ICER[0U] = (uint32_t)(1UL << (((uint32_t)IRQ_Index) & 0x1FUL));
+		__DSB();
+		__ISB();
+		return Error_OK;
+	}
+	return Error_Invalid_Parameter;
+#elif (defined (__Target_S32K142__) || defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
 
 	if ((int32_t)(IRQ_Index) >= 0)
 	{
@@ -57,7 +73,19 @@ int BSP_S32K1xx_IRQ_Disable(int IRQ_Index)
 }
 int BSP_S32K1xx_IRQ_Set_Priority(int IRQ_Index,int Priority)
 {
-#if (defined (__Target_S32K142__) || defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
+#if (defined (__Target_S32K116__) || defined (__Target_S32K118__))
+	if ((int32_t)(IRQ_Index) >= 0)
+	{
+		S32_NVIC->IPR[_IP_IDX(IRQ_Index)]  = ((uint32_t)(S32_NVIC->IPR[_IP_IDX(IRQ_Index)]  & ~(0xFFUL << _BIT_SHIFT(IRQ_Index))) |
+				(((Priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL) << _BIT_SHIFT(IRQ_Index)));
+	}
+	else
+	{
+		S32_SCB->SHP[_SHP_IDX(IRQ_Index)] = ((uint32_t)(S32_SCB->SHP[_SHP_IDX(IRQ_Index)] & ~(0xFFUL << _BIT_SHIFT(IRQ_Index))) |
+				(((Priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL) << _BIT_SHIFT(IRQ_Index)));
+	}
+	return Error_OK;
+#elif (defined (__Target_S32K142__) || defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
 
 	if ((int32_t)(IRQ_Index) >= 0)
 	{

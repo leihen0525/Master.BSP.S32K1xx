@@ -10,6 +10,217 @@
 
 #include "S32K1xx.Type.h"
 
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t							:1;
+		__IO uint32_t RST						:1;
+		__IO uint32_t							:30;
+	}BIT;
+}LPUART_GLOBAL_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t TRGSEL					:2;
+		__IO uint32_t							:30;
+	}BIT;
+}LPUART_PINCFG_Type;
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t SBR						:13;
+		__IO uint32_t SBNS						:1;
+		__IO uint32_t RXEDGIE					:1;
+		__IO uint32_t LBKDIE					:1;
+
+		__IO uint32_t RESYNCDIS					:1;
+		__IO uint32_t BOTHEDGE					:1;
+		__IO uint32_t MATCFG					:2;
+		__IO uint32_t RIDMAE					:1;
+		__IO uint32_t RDMAE						:1;
+		__IO uint32_t							:1;
+		__IO uint32_t TDMAE						:1;
+		__IO uint32_t OSR						:5;
+		__IO uint32_t M10						:1;
+		__IO uint32_t MAEN2						:1;
+		__IO uint32_t MAEN1						:1;
+	}BIT;
+}LPUART_BAUD_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t							:14;
+		__IO uint32_t MA2F						:1;
+		__IO uint32_t MA1F						:1;
+
+		__IO uint32_t PF						:1;
+		__IO uint32_t FE						:1;
+		__IO uint32_t NF						:1;
+		__IO uint32_t OR						:1;
+		__IO uint32_t IDLE						:1;
+		__IO uint32_t RDRF						:1;
+		__IO uint32_t TC						:1;
+		__IO uint32_t TDRE						:1;
+		__IO uint32_t RAF						:1;
+		__IO uint32_t LBKDE						:1;
+		__IO uint32_t BRK13						:1;
+		__IO uint32_t RWUID						:1;
+		__IO uint32_t RXINV						:1;
+		__IO uint32_t MSBF						:1;
+		__IO uint32_t RXEDGIF					:1;
+		__IO uint32_t LBKDIF					:1;
+	}BIT;
+}LPUART_STAT_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t PT						:1;
+		__IO uint32_t PE						:1;
+		__IO uint32_t ILT						:1;
+		__IO uint32_t WAKE						:1;
+		__IO uint32_t M							:1;
+		__IO uint32_t RSRC						:1;
+		__IO uint32_t DOZEEN					:1;
+		__IO uint32_t LOOPS						:1;
+
+		__IO uint32_t IDLECFG					:3;
+		__IO uint32_t M7						:1;
+		__IO uint32_t							:2;
+		__IO uint32_t MA2IE						:1;
+		__IO uint32_t MA1IE						:1;
+
+		__IO uint32_t SBK						:1;
+		__IO uint32_t RWU						:1;
+		__IO uint32_t RE						:1;
+		__IO uint32_t TE						:1;
+		__IO uint32_t ILIE						:1;
+		__IO uint32_t RIE						:1;
+		__IO uint32_t TCIE						:1;
+		__IO uint32_t TIE						:1;
+
+		__IO uint32_t PEIE						:1;
+		__IO uint32_t FEIE						:1;
+		__IO uint32_t NEIE						:1;
+		__IO uint32_t ORIE						:1;
+		__IO uint32_t TXINV						:1;
+		__IO uint32_t TXDIR						:1;
+		__IO uint32_t R9T8						:1;
+		__IO uint32_t R8T9						:1;
+	}BIT;
+}LPUART_CTRL_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t DATA_10BIT				:10;
+		__IO uint32_t							:1;
+		__IO uint32_t IDLINE					:1;
+		__IO uint32_t RXEMPT					:1;
+		__IO uint32_t FRETSC					:1;
+		__IO uint32_t PARITYE					:1;
+		__IO uint32_t NOISY						:1;
+
+		__IO uint32_t							:16;
+	}BIT;
+}LPUART_DATA_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t MA1						:10;
+		__IO uint32_t							:6;
+
+		__IO uint32_t MA2						:10;
+		__IO uint32_t							:6;
+	}BIT;
+}LPUART_MATCH_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t TXCTSE					:1;
+		__IO uint32_t TXRTSE					:1;
+		__IO uint32_t TXRTSPOL					:1;
+		__IO uint32_t RXRTSE					:1;
+		__IO uint32_t TXCTSC					:1;
+		__IO uint32_t TXCTSSRC					:1;
+		__IO uint32_t							:2;
+
+		__IO uint32_t RTSWATER					:2;
+		__IO uint32_t							:6;
+
+		__IO uint32_t TNP						:2;
+		__IO uint32_t IREN						:1;
+		__IO uint32_t							:13;
+	}BIT;
+}LPUART_MODIR_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t RXFIFOSIZE				:3;
+		__IO uint32_t RXFE						:1;
+		__IO uint32_t TXFIFOSIZE				:3;
+		__IO uint32_t TXFE						:1;
+
+		__IO uint32_t RXUFE						:1;
+		__IO uint32_t TXOFE						:1;
+		__IO uint32_t RXIDEN					:3;
+		__IO uint32_t							:1;
+		__IO uint32_t RXFLUSH					:1;
+		__IO uint32_t TXFLUSH					:1;
+
+		__IO uint32_t RXUF						:1;
+		__IO uint32_t TXOF						:1;
+		__IO uint32_t							:4;
+		__IO uint32_t RXEMPT					:1;
+		__IO uint32_t TXEMPT					:1;
+
+		__IO uint32_t							:8;
+	}BIT;
+}LPUART_FIFO_Type;
+
+typedef union
+{
+	__IO uint32_t DATA;
+	struct
+	{
+		__IO uint32_t TXWATER					:2;
+		__IO uint32_t							:6;
+
+		__IO uint32_t TXCOUNT					:3;
+		__IO uint32_t							:5;
+
+		__IO uint32_t RXWATER					:2;
+		__IO uint32_t							:6;
+
+		__IO uint32_t RXCOUNT					:3;
+		__IO uint32_t							:5;
+	}BIT;
+}LPUART_WATER_Type;
+
 /* ----------------------------------------------------------------------------
    -- LPUART Peripheral Access Layer
    ---------------------------------------------------------------------------- */
@@ -27,16 +238,16 @@ typedef struct
 {
 	__I  uint32_t VERID;                             /**< Version ID Register, offset: 0x0 */
 	__I  uint32_t PARAM;                             /**< Parameter Register, offset: 0x4 */
-	__IO uint32_t GLOBAL;                            /**< LPUART Global Register, offset: 0x8 */
-	__IO uint32_t PINCFG;                            /**< LPUART Pin Configuration Register, offset: 0xC */
-	__IO uint32_t BAUD;                              /**< LPUART Baud Rate Register, offset: 0x10 */
-	__IO uint32_t STAT;                              /**< LPUART Status Register, offset: 0x14 */
-	__IO uint32_t CTRL;                              /**< LPUART Control Register, offset: 0x18 */
-	__IO uint32_t DATA;                              /**< LPUART Data Register, offset: 0x1C */
-	__IO uint32_t MATCH;                             /**< LPUART Match Address Register, offset: 0x20 */
-	__IO uint32_t MODIR;                             /**< LPUART Modem IrDA Register, offset: 0x24 */
-	__IO uint32_t FIFO;                              /**< LPUART FIFO Register, offset: 0x28 */
-	__IO uint32_t WATER;                             /**< LPUART Watermark Register, offset: 0x2C */
+	LPUART_GLOBAL_Type GLOBAL;                            /**< LPUART Global Register, offset: 0x8 */
+	LPUART_PINCFG_Type PINCFG;                            /**< LPUART Pin Configuration Register, offset: 0xC */
+	LPUART_BAUD_Type BAUD;                              /**< LPUART Baud Rate Register, offset: 0x10 */
+	LPUART_STAT_Type STAT;                              /**< LPUART Status Register, offset: 0x14 */
+	LPUART_CTRL_Type CTRL;                              /**< LPUART Control Register, offset: 0x18 */
+	LPUART_DATA_Type DATA;                              /**< LPUART Data Register, offset: 0x1C */
+	LPUART_MATCH_Type MATCH;                             /**< LPUART Match Address Register, offset: 0x20 */
+	LPUART_MODIR_Type MODIR;                             /**< LPUART Modem IrDA Register, offset: 0x24 */
+	LPUART_FIFO_Type FIFO;                              /**< LPUART FIFO Register, offset: 0x28 */
+	LPUART_WATER_Type WATER;                             /**< LPUART Watermark Register, offset: 0x2C */
 } LPUART_Type, *LPUART_MemMapPtr;
 
  /** Number of instances of the LPUART module. */

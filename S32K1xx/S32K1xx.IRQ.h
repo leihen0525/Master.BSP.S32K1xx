@@ -115,26 +115,26 @@ typedef enum
 	ADC0_IRQn                    = 28u,              /**< ADC0 interrupt request. */
 	CMP0_IRQn                    = 29u,              /**< CMP0 interrupt request */
 	LPUART1_RxTx_IRQn            = 30u,              /**< LPUART1 Transmit / Receive  Interrupt */
-	LPUART0_RxTx_IRQn            = 31u               /**< LPUART0 Transmit / Receive Interrupt */
+	LPUART0_RxTx_IRQn            = 31u,              /**< LPUART0 Transmit / Receive Interrupt */
 #elif (defined (__Target_S32K142__) || defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
 
-	#if (defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
+#if (defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
 
 	LPSPI2_IRQn                  = 28u,              /**< LPSPI2 Interrupt */
 
-		#if	(defined (__Target_S32K148__))
+#if	(defined (__Target_S32K148__))
 	LPI2C1_Master_IRQn           = 29u,              /**< LPI2C1 Master Interrupt */
 	LPI2C1_Slave_IRQn            = 30u,              /**< LPI2C1 Slave Interrupt */
-		#endif
+#endif
 
-	#endif
+#endif
 
 	LPUART0_RxTx_IRQn            = 31u,              /**< LPUART0 Transmit / Receive Interrupt */
 	LPUART1_RxTx_IRQn            = 33u,              /**< LPUART1 Transmit / Receive  Interrupt */
 
-	#if (defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
+#if (defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
 	LPUART2_RxTx_IRQn            = 35u,              /**< LPUART2 Transmit / Receive  Interrupt */
-	#endif
+#endif
 
 	ADC0_IRQn                    = 39u,              /**< ADC0 interrupt request. */
 	ADC1_IRQn                    = 40u,              /**< ADC1 interrupt request. */
@@ -149,10 +149,10 @@ typedef enum
 	LPIT0_Ch3_IRQn               = 51u,              /**< LPIT0 channel 3 overflow interrupt */
 	PDB0_IRQn                    = 52u,              /**< PDB0 interrupt */
 
-	#if (defined (__Target_S32K148__))
+#if (defined (__Target_S32K148__))
 	SAI1_Tx_IRQn                 = 55u,              /**< SAI1 Transmit Synchronous interrupt (for interrupt controller) */
 	SAI1_Rx_IRQn                 = 56u,              /**< SAI1 Receive Synchronous interrupt (for interrupt controller) */
-	#endif
+#endif
 
 	SCG_IRQn                     = 57u,              /**< SCG bus interrupt request */
 	LPTMR0_IRQn                  = 58u,              /**< LPTIMER interrupt request */
@@ -163,14 +163,14 @@ typedef enum
 	PORTE_IRQn                   = 63u,              /**< Port E pin detect interrupt */
 	SWI_IRQn                     = 64u,              /**< Software interrupt */
 
-	#if (defined (__Target_S32K148__))
+#if (defined (__Target_S32K148__))
 	QSPI_IRQn                    = 65u,              /**< QSPI All interrupts ORed output */
-	#endif
+#endif
 
 	PDB1_IRQn                    = 68u,              /**< PDB1 interrupt */
 	FLEXIO_IRQn                  = 69u,              /**< FlexIO Interrupt */
 
-	#if (defined (__Target_S32K148__))
+#if (defined (__Target_S32K148__))
 	SAI0_Tx_IRQn                 = 70u,              /**< SAI0 Transmit Synchronous interrupt (for interrupt controller) */
 	SAI0_Rx_IRQn                 = 71u,              /**< SAI0 Receive Synchronous interrupt (for interrupt controller) */
 	ENET_TIMER_IRQn              = 72u,              /**< ENET 1588 Timer Interrupt - synchronous */
@@ -179,7 +179,7 @@ typedef enum
 	ENET_ERR_IRQn                = 75u,              /**< ENET Payload receive error. */
 	ENET_STOP_IRQn               = 76u,              /**< ENET Graceful stop */
 	ENET_WAKE_IRQn               = 77u,              /**< ENET Wake from sleep. */
-	#endif
+#endif
 
 	CAN0_ORed_IRQn               = 78u,              /**< CAN0 OR'ed [Bus Off OR Transmit Warning OR Receive Warning] */
 	CAN0_Error_IRQn              = 79u,              /**< CAN0 Interrupt indicating that errors were detected on the CAN bus */
@@ -190,21 +190,21 @@ typedef enum
 	CAN1_Error_IRQn              = 86u,              /**< CAN1 Interrupt indicating that errors were detected on the CAN bus */
 	CAN1_ORed_0_15_MB_IRQn       = 88u,              /**< CAN1 OR'ed Interrupt for Message buffer (0-15) */
 
-	#if (defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
+#if (defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
 
-		#if	(defined (__Target_S32K146__) || defined (__Target_S32K148__))
+#if	(defined (__Target_S32K146__) || defined (__Target_S32K148__))
 	CAN1_ORed_16_31_MB_IRQn      = 89u,              /**< CAN1 OR'ed Interrupt for Message buffer (16-31) */
-		#endif
+#endif
 
 	CAN2_ORed_IRQn               = 92u,              /**< CAN2 OR'ed [Bus Off OR Transmit Warning OR Receive Warning] */
 	CAN2_Error_IRQn              = 93u,              /**< CAN2 Interrupt indicating that errors were detected on the CAN bus */
 	CAN2_ORed_0_15_MB_IRQn       = 95u,              /**< CAN2 OR'ed Message buffer (0-15) */
 
-		#if	(defined (__Target_S32K148__))
+#if	(defined (__Target_S32K148__))
 	CAN2_ORed_16_31_MB_IRQn      = 96u,              /**< CAN2 OR'ed Message buffer (16-31) */
-		#endif
+#endif
 
-	#endif
+#endif
 
 	FTM0_Ch0_Ch1_IRQn            = 99u,              /**< FTM0 Channel 0 and 1 interrupt */
 	FTM0_Ch2_Ch3_IRQn            = 100u,             /**< FTM0 Channel 2 and 3 interrupt */
@@ -231,7 +231,7 @@ typedef enum
 	FTM3_Fault_IRQn              = 121u,             /**< FTM3 Fault interrupt */
 	FTM3_Ovf_Reload_IRQn         = 122u,             /**< FTM3 Counter overflow and Reload interrupt */
 
-	#if (defined (__Target_S32K146__) || defined (__Target_S32K148__))
+#if (defined (__Target_S32K146__) || defined (__Target_S32K148__))
 	FTM4_Ch0_Ch1_IRQn            = 123u,             /**< FTM4 Channel 0 and 1 interrupt */
 	FTM4_Ch2_Ch3_IRQn            = 124u,             /**< FTM4 Channel 2 and 3 interrupt */
 	FTM4_Ch4_Ch5_IRQn            = 125u,             /**< FTM4 Channel 4 and 5 interrupt */
@@ -244,7 +244,7 @@ typedef enum
 	FTM5_Ch6_Ch7_IRQn            = 132u,             /**< FTM5 Channel 6 and 7 interrupt */
 	FTM5_Fault_IRQn              = 133u,             /**< FTM5 Fault interrupt */
 	FTM5_Ovf_Reload_IRQn         = 134u,             /**< FTM5 Counter overflow and Reload interrupt */
-		#if (defined (__Target_S32K148__))
+#if (defined (__Target_S32K148__))
 	FTM6_Ch0_Ch1_IRQn            = 135u,             /**< FTM6 Channel 0 and 1 interrupt */
 	FTM6_Ch2_Ch3_IRQn            = 136u,             /**< FTM6 Channel 2 and 3 interrupt */
 	FTM6_Ch4_Ch5_IRQn            = 137u,             /**< FTM6 Channel 4 and 5 interrupt */
@@ -257,9 +257,9 @@ typedef enum
 	FTM7_Ch6_Ch7_IRQn            = 144u,             /**< FTM7 Channel 6 and 7 interrupt */
 	FTM7_Fault_IRQn              = 145u,             /**< FTM7 Fault interrupt */
 	FTM7_Ovf_Reload_IRQn         = 146u,             /**< FTM7 Counter overflow and Reload interrupt */
-		#endif
+#endif
 
-	#endif
+#endif
 
 #endif
 

@@ -18,7 +18,36 @@ void NormalRUNmode_80MHz (void);
 
 int BSP_S32K1xx_CPU_Init(void)
 {
-#if (defined (__Target_S32K142__) || defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
+#if (defined (__Target_S32K116__) || defined (__Target_S32K118__))
+
+	SCG->FIRCDIV.DATA=SCG_FIRCDIV_FIRCDIV1(1)|SCG_FIRCDIV_FIRCDIV2(1);
+
+
+/*
+	// Frequency division for SOSCDIV1_CLK, SOSCDIV2_CLK
+	SCG->SOSCDIV.DATA=SCG_SOSCDIV_SOSCDIV1(1) // SOSCDIV1=1 : Divide by 1
+				| SCG_SOSCDIV_SOSCDIV2(1);   // SOSCDIV2=1 : Divide by 1
+
+	SCG->SOSCCFG.DATA=SCG_SOSCCFG_RANGE(3) // RANGE=3: 8-40 MHz SOSC
+				| SCG_SOSCCFG_HGO(1)    // HGO=0: Configure crystal oscillator for high-gain operation
+				| SCG_SOSCCFG_EREFS(1); // EREFS=1： Internal crystal oscillator of OSC selected
+
+	while(SCG->SOSCCSR.DATA & SCG_SOSCCSR_LK_MASK); // Ensure SOSCCSR unlocked
+	SCG->SOSCCSR.DATA = SCG_SOSCCSR_SOSCEN(1);      // SOSC Enable
+*/
+/*
+	// 配置system clock源, DIVCORE, DIVBUS, DIVFLASH
+	SCG->RCCR = SCG_RCCR_SCS(1)// Select System Clock Source: System PLL (SPLL_CLK)
+			| SCG_RCCR_DIVCORE(0)
+			| SCG_RCCR_DIVBUS(0)
+			| SCG_RCCR_DIVSLOW(1);
+
+	// 检查Clock Status(SCG_CSR) 是否为RCCR配置
+	while(1 != (SCG->CSR & SCG_CSR_SCS_MASK) >> SCG_CSR_SCS_SHIFT) { }
+*/
+
+
+#elif (defined (__Target_S32K142__) || defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
 	SOSC_init_8MHz();
 	SPLL_init_160MHz();
 	NormalRUNmode_80MHz();
@@ -66,3 +95,5 @@ void NormalRUNmode_80MHz (void)
 	while (((SCG->CSR & SCG_CSR_SCS_MASK) >> SCG_CSR_SCS_SHIFT ) != 6) {}//等待系统时钟源成功选择SPLL
 }
 #endif
+
+

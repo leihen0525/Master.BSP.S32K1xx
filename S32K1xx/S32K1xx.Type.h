@@ -86,7 +86,7 @@
  * @addtogroup Cortex_Core_Configuration Cortex Mx Core Configuration
  * @{
  */
-	#if (defined (__Target_S32K116__) || defined (__Target_S32K118__))
+#if (defined (__Target_S32K116__) || defined (__Target_S32K118__))
 
 #define __CM0PLUS_REV             0x0001U   /* Core revision r0p1 */
 #define __MPU_PRESENT             0U        /* no MPU present */
@@ -94,9 +94,13 @@
 #define __NVIC_PRIO_BITS          2U        /* Number of Bits used for Priority Levels */
 #define __Vendor_SysTickConfig    0U        /* Set to 1 if different SysTick Config is used */
 
-#include "core_cm0plus.h"                   /* Processor and core peripherals */
+#define _BIT_SHIFT(IRQn)         (  ((((uint32_t)(int32_t)(IRQn))         )      &  0x03UL) * 8UL)
+#define _SHP_IDX(IRQn)           ( (((((uint32_t)(int32_t)(IRQn)) & 0x0FUL)-8UL) >>    2UL)      )
+#define _IP_IDX(IRQn)            (   (((uint32_t)(int32_t)(IRQn))                >>    2UL)      )
 
-	#elif (defined (__Target_S32K142__) || defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
+//#include "core_cm0plus.h"                   /* Processor and core peripherals */
+
+#elif (defined (__Target_S32K142__) || defined (__Target_S32K144__) || defined (__Target_S32K146__) || defined (__Target_S32K148__))
 
 #define __MPU_PRESENT                  0         /**< Defines if an MPU is present or not */
 #define __NVIC_PRIO_BITS               4         /**< Number of priority bits implemented in the NVIC */

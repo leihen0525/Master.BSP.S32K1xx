@@ -18,6 +18,7 @@
 	|| defined (__Target_S32K148__))
 
 #include "S32K1xx.Type.h"
+#include "S32K1xx.Clock.h"
 #include "S32K1xx.CAN.h"
 #include "S32K1xx.ENET.h"
 #include "S32K1xx.GPIO.h"
@@ -31,6 +32,16 @@
 #include "S32K1xx.SCB.h"
 #include "S32K1xx.SCG.h"
 #include "S32K1xx.WDOG.h"
+#include "S32K1xx.ADC.h"
+#include "S32K1xx.CRC.h"
+#include "S32K1xx.FTM.h"
+#include "S32K1xx.LPSPI.h"
+#include "S32K1xx.LPI2C.h"
+#include "S32K1xx.FlexIO.h"
+#include "S32K1xx.SIM.h"
+#include "S32K1xx.PDB.h"
+#include "S32K1xx.DMA.h"
+#include "S32K1xx.DMAMUX.h"
 
 #else
 
