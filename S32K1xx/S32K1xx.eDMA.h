@@ -1,12 +1,12 @@
 /*
- * S32K1xx.DMA.h
+ * S32K1xx.eDMA.h
  *
  *  Created on: 2020年8月5日
  *      Author: Master.HE
  */
 
-#ifndef S32K1XX_DMA_H_
-#define S32K1XX_DMA_H_
+#ifndef S32K1XX_EDMA_H_
+#define S32K1XX_EDMA_H_
 
 #include "S32K1xx.Type.h"
 
@@ -84,7 +84,7 @@ typedef struct {
 			__IO uint16_t ELINKYES;                          /**< TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled), array offset: 0x101E, array step: 0x20 */
 		} BITER;
 	} TCD[DMA_TCD_COUNT];
-} DMA_Type, *DMA_MemMapPtr;
+} eDMA_Type, *eDMA_MemMapPtr;
 
  /** Number of instances of the DMA module. */
 #define DMA_INSTANCE_COUNT                       (1u)
@@ -92,13 +92,13 @@ typedef struct {
 
 /* DMA - Peripheral instance base addresses */
 /** Peripheral DMA base address */
-#define DMA_BASE                                 (0x40008000u)
+#define eDMA_BASE                                 (0x40008000u)
 /** Peripheral DMA base pointer */
-#define DMA                                      ((DMA_Type *)DMA_BASE)
+#define eDMA                                      ((eDMA_Type *)eDMA_BASE)
 /** Array initializer of DMA peripheral base addresses */
-#define DMA_BASE_ADDRS                           { DMA_BASE }
+#define DMA_BASE_ADDRS                           { eDMA_BASE }
 /** Array initializer of DMA peripheral base pointers */
-#define DMA_BASE_PTRS                            { DMA }
+#define DMA_BASE_PTRS                            { eDMA }
  /** Number of interrupt vector arrays for the DMA module. */
 #define DMA_IRQS_ARR_COUNT                       (2u)
  /** Number of interrupt channels for the CHN type of DMA module. */
@@ -898,4 +898,4 @@ typedef struct {
  * @}
  */ /* end of group DMA_Peripheral_Access_Layer */
 
-#endif /* S32K1XX_DMA_H_ */
+#endif /* S32K1XX_EDMA_H_ */

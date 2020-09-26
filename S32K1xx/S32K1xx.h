@@ -40,7 +40,7 @@
 #include "S32K1xx.FlexIO.h"
 #include "S32K1xx.SIM.h"
 #include "S32K1xx.PDB.h"
-#include "S32K1xx.DMA.h"
+#include "S32K1xx.eDMA.h"
 #include "S32K1xx.DMAMUX.h"
 
 #else

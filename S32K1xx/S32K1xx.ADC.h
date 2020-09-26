@@ -379,6 +379,7 @@ typedef struct
 #define ADC_SC3_CAL_SHIFT                        7u
 #define ADC_SC3_CAL_WIDTH                        1u
 #define ADC_SC3_CAL(x)                           (((uint32_t)(((uint32_t)(x))<<ADC_SC3_CAL_SHIFT))&ADC_SC3_CAL_MASK)
+#define ADC_SC3_MASK                             (ADC_SC3_AVGS_MASK|ADC_SC3_AVGE_MASK|ADC_SC3_ADCO_MASK|ADC_SC3_CAL_MASK)
 /* BASE_OFS Bit Fields */
 #define ADC_BASE_OFS_BA_OFS_MASK                 0xFFu
 #define ADC_BASE_OFS_BA_OFS_SHIFT                0u
